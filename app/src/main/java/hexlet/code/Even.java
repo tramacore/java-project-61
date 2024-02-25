@@ -7,19 +7,20 @@ public class Even {
         Cli.nameReciever();
         boolean isRight = false;
         int counter = 0;
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         String answer;
         Scanner scanAnswer = new Scanner(System.in);
         do {
             int quest = (int) (Math.random() * 100);
             if (counter != 3) {
-                System.out.println("Number: " + quest);
+                System.out.println("Question: " + quest);
                 answer = scanAnswer.nextLine();
                 if (quest % 2 == 0) { //Если число четное
                     if (answer.equals("yes")) { //и ввод отмечен как четное число
                         System.out.println("Correct!"); //вывод что ответ правильный
                         counter++; //увеличение счетчика
                     } else { //Если ввод отмечен неправильно (как нечетное число)
-                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'no'. Let's try again, "
+                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'yes'. Let's try again, "
                                 + Cli.getName()); //вывод что ответ неправильный
                         return;
                     }
@@ -28,7 +29,7 @@ public class Even {
                         System.out.println("Correct!"); //вывод что ответ правильный
                         counter++; //увеличение счетчика
                     } else {
-                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'yes'. Let's try again, "
+                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'no'. Let's try again, "
                                 + Cli.getName()); //Если ввод отмечен неправильно (как нечетное число)
                         return;
                     }
