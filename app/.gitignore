@@ -15,7 +15,7 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.idea
+.idea/*
 ### Eclipse ###
 .apt_generated
 .classpath
@@ -40,3 +40,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### temps ###
+/app/build.*
