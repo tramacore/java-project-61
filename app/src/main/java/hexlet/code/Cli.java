@@ -10,7 +10,7 @@ public class Cli {
         System.out.printf("\nHello %s!\n", userName);
     }
 
-    public static String getName(){
+    public static String getName() {
         return name;
     }
 }

@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -12,10 +11,12 @@ public class App {
             case 0:
                 return;
             case 1:
-                    Cli.nameReciever();
-                    break;
+                Cli.nameReciever();
+                break;
             case 2:
                 Even.even();
+                break;
+            default:
                 break;
         }
     }
