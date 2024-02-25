@@ -3,5 +3,5 @@
 Hello , this is my **FIRST** hexlet project.
 The name of the project : 
 # Brain Games!
-**1.Menu**
+**1.Menu**\
 [![asciicast](https://asciinema.org/a/L8Rqo0z2zbUaNX9c4I7TU2e4J.svg)](https://asciinema.org/a/L8Rqo0z2zbUaNX9c4I7TU2e4J)
