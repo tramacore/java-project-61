@@ -14,11 +14,11 @@ public class App {
             case 1:
                 Cli.nameReciever();
                 break;
-            case 2:
+            case 0:
+                return;
+            default:
                 Engine.starter(answer);
                 break;
-            default:
-                return;
         }
     }
 }

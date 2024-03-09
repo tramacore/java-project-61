@@ -18,14 +18,15 @@ public class Engine {
         int counter = 0;
         Scanner answerScanner = new Scanner(System.in);
         String answer;
+        String[] arrayAnswer = new String[3];
         switch (numberOfGame) {
             case 2:
                 Even.evenMessage();
-                Even.even();
-                String[] arrayAnswer = Even.even();
+                arrayAnswer = Even.even();
                 int[] arrayIntAnswer = Even.getQuest();
                 for (; counter < 3; ) {
                     questViewer(String.valueOf(arrayIntAnswer[counter]));
+                    answerWaiter();
                     answer = answerScanner.nextLine();
                     if (answer.equals(arrayAnswer[counter])) {
                         counter++;
@@ -34,6 +35,22 @@ public class Engine {
                         wrongAnswer(answer, arrayAnswer[counter]);
                         return;
                     }
+                }
+            case 3:
+                int[] arrayAnswerCalc = Calc.calcing();
+                String[] arrayQuestsCalc = Calc.getQuest();
+                Calc.calcText();
+                for (; counter < 3; ) {
+                    questViewer(arrayQuestsCalc[counter]);
+                    answerWaiter();
+                    answer= answerScanner.next();
+                    if(Integer.parseInt(answer) == arrayAnswerCalc[counter]) {
+                        counter++;
+                        win(counter);
+                    } else {
+                wrongAnswer(answer, String.valueOf(arrayAnswerCalc[counter]));
+                return;
+            }
                 }
         }
     }
@@ -45,5 +62,8 @@ public class Engine {
     private static void wrongAnswer(String answer, String correctAnswer) {
         System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was " +
                 "\'" + correctAnswer + "\'");
+    }
+    private static void answerWaiter() {
+        System.out.print("Your answer : ");
     }
 }
