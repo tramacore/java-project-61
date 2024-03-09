@@ -1,54 +1,31 @@
 package hexlet.code;
 
-import java.util.Scanner;
+
+import java.util.Arrays;
 
 public class Even {
-    public static void even() {
-        Cli.nameReciever();
-        boolean isRight = false;
-        int counter = 0;
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        String answer;
-        Scanner scanAnswer = new Scanner(System.in);
-        do {
-            int quest = (int) (Math.random() * 100);
-            if (counter != 3) {
-                System.out.println("Question: " + quest);
-                answer = scanAnswer.nextLine();
-                if (quest % 2 == 0) { //Если число четное
-                    if (answer.equals("yes")) { //и ввод отмечен как четное число
-                        System.out.println("Correct!"); //вывод что ответ правильный
-                        counter++; //увеличение счетчика
-                    } else { //Если ввод отмечен неправильно (как нечетное число)
-                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'yes'. Let's try again, "
-                                + Cli.getName()); //вывод что ответ неправильный
-                        return;
-                    }
-                } else if (quest % 2 != 0) { //Если число нечетное
-                    if (answer.equals("no")) { //и ввод отмечен как нечетное число
-                        System.out.println("Correct!"); //вывод что ответ правильный
-                        counter++; //увеличение счетчика
-                    } else {
-                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'no'. Let's try again, "
-                                + Cli.getName()); //Если ввод отмечен неправильно (как нечетное число)
-                        return;
-                    }
-                } else { //Если в ввод подается неолжидающаяся строка (отличная от "yes" и "no")
-                    if (quest % 2 == 0) {
-                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'yes'. Let's try again,"
-                                + Cli.getName()); /*необходимо для определения какой ответ правильный
-                                в случае если число четное */
-                    } else {
-                        System.out.println(answer + " is wrong answer ;(. Correct answer was 'no'. Let's try again,"
-                                + Cli.getName()); /*необходимо для определения какой ответ правильный
-                                в случае если число нечетное */
-                    }
-                    return;
-                }
-            } else { // При достижении счетчиком значения 3 - вывод о удачном завершении (победе) в игре
-                System.out.println("Congratulations," + Cli.getName());
-                isRight = true;
+    static String correctAnswer;
+    static int quest;
+    private static int[] arrayIntAnswer = new int[3];
+    public static String[] even() { /*При вызове метод создаст и заполнит 2 массива :
+                                                                            1 с правильными ответами и 1 с числами*/
+        String[] arrayAnswer = new String[3];
+        for (int i = 0; i < 3; i++) {
+            quest = (int) (Math.random() * 100); //Создание числа
+            arrayIntAnswer[i] = quest; //Передача созданного числа в переменную поля , для использования в Engine
+            if (quest % 2 == 0) { //Если число четное
+                arrayAnswer[i] = "yes"; //добавление правильного ответа в массив с правильными ответами
+            } else if (quest % 2 != 0) { //Если число нечетное
+                arrayAnswer[i] = "no";//добавление правильного ответа в массив с правильными ответами
             }
-        } while (!isRight);
+        }
+        return arrayAnswer;
+    }
+
+    public static void evenMessage() {
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    }
+    public static int[] getQuest(){
+        return arrayIntAnswer;
     }
 }
