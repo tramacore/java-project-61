@@ -19,10 +19,7 @@ public class GCD {
     public static String[] getCorrectAnswer() {
         return correctAnswer;
     }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(gcdeing()));
-    }
+    
     public static int findGCD(int a, int b) {
         while (b != 0) {
             int temp = b;
