@@ -8,7 +8,7 @@ public class Cli {
         Scanner sqName = new Scanner(System.in);
         String userName = sqName.nextLine();
         name = StringUtils.capitalize(StringUtils.trim(userName));
-        System.out.printf("Hello , %s!\n", name);
+        System.out.printf("Hello, %s!\n", name);
     }
 
     public static String getName() {
