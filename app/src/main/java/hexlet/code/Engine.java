@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+
 import java.util.Scanner;
 
 public class Engine {
@@ -13,8 +17,6 @@ public class Engine {
 
     public static void starter(int numberOfGame) {
         Cli.nameReciever();
-        String quest;
-        String correctAnswer;
         int counter = 0;
         Scanner answerScanner = new Scanner(System.in);
         String answer;
@@ -52,6 +54,21 @@ public class Engine {
                 return;
             }
                 }
+            case 4:
+                int[] arrayAnswerGcd = GCD.gcdeing();
+                GCD.nod();
+                for (; counter < 3; ) {
+                    questViewer(GCD.getCorrectAnswer()[counter]);
+                    answerWaiter();
+                    answer = answerScanner.next();
+                    if (Integer.parseInt(answer) == arrayAnswerGcd[counter]){
+                        counter++;
+                        win(counter);
+                } else {
+                        wrongAnswer(answer , String.valueOf(arrayAnswerGcd[counter]));
+                        return;
+                    }
+            }
         }
     }
 

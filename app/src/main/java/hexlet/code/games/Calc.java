@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 import java.lang.Math;
 public class Calc {
     private static String[] questSaver = new String[3];
