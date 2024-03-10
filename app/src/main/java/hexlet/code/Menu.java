@@ -7,6 +7,7 @@ public class Menu {
                 + "3 - Calc\n"
                 + "4 - GCD\n"
                 + "5 - Progression\n"
+                + "6 - Prime\n"
                 + "0 - Exit"
                 + "\nYour choice: ");
     }

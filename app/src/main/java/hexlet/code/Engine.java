@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -82,6 +79,21 @@ public class Engine {
                         win(counter);
                     } else {
                         wrongAnswer(answer, String.valueOf(Progression.getAnswer()));
+                        return;
+                    }
+                }
+            case 6:
+                Prime.text();
+                for (; counter < 3; ) {
+                    String correctAnswer = Prime.primer();
+                    questViewer(String.valueOf(Prime.getQuest()));
+                    answerWaiter();
+                    answer = answerScanner.next();
+                    if (answer.equals(correctAnswer)) {
+                        counter++;
+                        win(counter);
+                    } else {
+                        wrongAnswer(answer, correctAnswer);
                         return;
                     }
                 }
