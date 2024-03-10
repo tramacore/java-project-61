@@ -1,6 +1,6 @@
 package hexlet.code.games;
 import java.lang.Math;
-public class Calc {
+public class Calc implements GAMESET{
     private static String[] questSaver = new String[3];
     public static int[] calcing() {
         int[] correctAnswers = new int[3];
@@ -24,7 +24,7 @@ public class Calc {
     public static String[] getQuest() {
         return questSaver;
     }
-    public static void calcText() {
+    public static void text() {
         System.out.println("What is the result of the expression?");
     }
 }

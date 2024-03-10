@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Arrays;
 
-public class GCD {
+public class GCD implements GAMESET{
     private static String[] correctAnswer = new String[3];
 
     public static int[] gcdeing() {
@@ -19,7 +19,7 @@ public class GCD {
     public static String[] getCorrectAnswer() {
         return correctAnswer;
     }
-    
+
     public static int findGCD(int a, int b) {
         while (b != 0) {
             int temp = b;
@@ -28,7 +28,7 @@ public class GCD {
         }
         return a;
     }
-    public static void nod() {
+    public static void text() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 }

@@ -3,7 +3,7 @@ package hexlet.code.games;
 
 import java.util.Arrays;
 
-public class Even {
+public class Even implements GAMESET{
     static String correctAnswer;
     static int quest;
     private static int[] arrayIntAnswer = new int[3];
@@ -22,7 +22,7 @@ public class Even {
         return arrayAnswer;
     }
 
-    public static void evenMessage() {
+    public static void text() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
     public static int[] getQuest(){

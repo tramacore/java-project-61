@@ -3,7 +3,9 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
@@ -23,7 +25,7 @@ public class Engine {
         String[] arrayAnswer = new String[3];
         switch (numberOfGame) {
             case 2:
-                Even.evenMessage();
+                Even.text();
                 arrayAnswer = Even.even();
                 int[] arrayIntAnswer = Even.getQuest();
                 for (; counter < 3; ) {
@@ -41,34 +43,48 @@ public class Engine {
             case 3:
                 int[] arrayAnswerCalc = Calc.calcing();
                 String[] arrayQuestsCalc = Calc.getQuest();
-                Calc.calcText();
+                Calc.text();
                 for (; counter < 3; ) {
                     questViewer(arrayQuestsCalc[counter]);
                     answerWaiter();
-                    answer= answerScanner.next();
-                    if(Integer.parseInt(answer) == arrayAnswerCalc[counter]) {
+                    answer = answerScanner.next();
+                    if (Integer.parseInt(answer) == arrayAnswerCalc[counter]) {
                         counter++;
                         win(counter);
                     } else {
-                wrongAnswer(answer, String.valueOf(arrayAnswerCalc[counter]));
-                return;
-            }
+                        wrongAnswer(answer, String.valueOf(arrayAnswerCalc[counter]));
+                        return;
+                    }
                 }
             case 4:
                 int[] arrayAnswerGcd = GCD.gcdeing();
-                GCD.nod();
+                GCD.text();
                 for (; counter < 3; ) {
                     questViewer(GCD.getCorrectAnswer()[counter]);
                     answerWaiter();
                     answer = answerScanner.next();
-                    if (Integer.parseInt(answer) == arrayAnswerGcd[counter]){
+                    if (Integer.parseInt(answer) == arrayAnswerGcd[counter]) {
                         counter++;
                         win(counter);
-                } else {
-                        wrongAnswer(answer , String.valueOf(arrayAnswerGcd[counter]));
+                    } else {
+                        wrongAnswer(answer, String.valueOf(arrayAnswerGcd[counter]));
                         return;
                     }
-            }
+                }
+            case 5:
+                Progression.text();
+                for (; counter < 3; ) {
+                    questViewer(Arrays.toString(Progression.hidder(Progression.progress())));
+                    answerWaiter();
+                    answer = answerScanner.next();
+                    if (Integer.parseInt(answer) == Progression.getAnswer()) {
+                        counter++;
+                        win(counter);
+                    } else {
+                        wrongAnswer(answer, String.valueOf(Progression.getAnswer()));
+                        return;
+                    }
+                }
         }
     }
 
@@ -80,6 +96,7 @@ public class Engine {
         System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was " +
                 "\'" + correctAnswer + "\'");
     }
+
     private static void answerWaiter() {
         System.out.print("Your answer : ");
     }
