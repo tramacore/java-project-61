@@ -84,6 +84,7 @@ public class Engine {
                         return;
                     }
                 }
+                break;
             case 6:
                 Prime.text();
                 for (; counter < 3; ) {
@@ -99,6 +100,7 @@ public class Engine {
                         return;
                     }
                 }
+                break;
         }
     }
 

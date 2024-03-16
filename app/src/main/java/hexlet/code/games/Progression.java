@@ -45,6 +45,8 @@ public class Progression {
         for (int i = 0; i < arrayToPrint.length; i++) {
             if (i != arrayToPrint.length - 1) {
                 System.out.print(arrayToPrint[i] + " ");
+            } else {
+                System.out.print(arrayToPrint[i]);
             }
         }
     }
