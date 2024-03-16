@@ -2,16 +2,15 @@ package hexlet.code.games;
 
 public class Progression {
     private static int answer; //Переменная , в которой будет правильный ответ
-
+    private static final int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
+    private static int factorToLength = 10; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 10
+    //для создания массива до 10 символов
     public static int[] progress() {
-        int factorToLength = 10; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 10
-        //для создания массива до 10 символов
         int generate = (int) (Math.random() * factorToLength); //Создание длины начального массива
         while (generate < 5) { // По условию массив должен быт не менее 5 чисел
             generate = (int) (Math.random() * factorToLength);
         }
         int[] arrayToShow = new int[generate]; //Создание самого массива , длиной заданной выше
-        int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
         arrayToShow[0] = (int) (Math.random() * factor); //Задание первого числа массива
         int x;
         do {
@@ -25,7 +24,6 @@ public class Progression {
     }
 
     public static String[] hidder(int[] arr) { //СОздаст массив , который будет прятать число в себе
-        int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
         int x = (int) (Math.random() * factor); //Задает каким по порядку будет спрятанное число
         String[] arrToHide = new String[arr.length]; //Создание самого массива , длиной массива с метода progress
         while (x >= arr.length) {
