@@ -29,7 +29,7 @@ public class Engine {
         int counter = 0;
         Scanner answerScanner = new Scanner(System.in);
         String answer;
-        String[] arrayAnswer = new String[3];
+        String[] arrayAnswer = new String[COUNTMAX];
         if (numberOfGame == EVENMETHOD) {
             Even.text();
             arrayAnswer = Even.even();
