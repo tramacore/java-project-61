@@ -71,7 +71,9 @@ public class Engine {
             case 5:
                 Progression.text();
                 for (; counter < 3; ) {
-                    questViewer(Arrays.toString(Progression.hidder(Progression.progress())));
+                    System.out.print("Question: ");
+                    Progression.printArray();
+                    System.out.println();
                     answerWaiter();
                     answer = answerScanner.next();
                     if (Integer.parseInt(answer) == Progression.getAnswer()) {
