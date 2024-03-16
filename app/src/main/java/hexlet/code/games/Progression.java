@@ -3,7 +3,7 @@ package hexlet.code.games;
 public class Progression {
     private static int answer; //Переменная , в которой будет правильный ответ
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-    private static int FACTORTOLENGTH = 10; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 10
+    private static final int FACTORTOLENGTH = 10; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 10
     //для создания массива до 10 символов
     public static int[] progress() {
         int generate = (int) (Math.random() * FACTORTOLENGTH); //Создание длины начального массива

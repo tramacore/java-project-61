@@ -4,8 +4,8 @@ public class Calc {
     private static final int COUNTROUNDS = 3; //Кол-во раундов - 3
     private static String[] questSaver = new String[COUNTROUNDS];
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-    private static double THETHIRDPART = 0.33; //Т.к операторов 3 - то вероятность выбора одного из них - 1 / 3
-    private static double TWOTHIRDS = 0.66; //Вероятность выбора ТРЕТЬЕГО оператора
+    private static final double THETHIRDPART = 0.33; //Т.к операторов 3 - то вероятность выбора одного из них - 1 / 3
+    private static final double TWOTHIRDS = 0.66; //Вероятность выбора ТРЕТЬЕГО оператора
 
     public static int[] calcing() {
         int[] correctAnswers = new int[COUNTROUNDS]; //Создание массива , в котором будут правильные ответы(на 3 раунда)

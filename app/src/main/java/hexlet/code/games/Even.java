@@ -3,7 +3,7 @@ package hexlet.code.games;
 public class Even {
     private static int quest;
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-    private static int COUNTROUNDS = 3; //Кол-во раундов - 3
+    private static final int COUNTROUNDS = 3; //Кол-во раундов - 3
     private static int[] arrayIntAnswer = new int[COUNTROUNDS];
 
     public static String[] even() { /*При вызове метод создаст и заполнит 2 массива :

@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 public class GCD {
-    public static int COUNTROUNDS = 3; //Кол-во раундов - 3
+    public static final int COUNTROUNDS = 3; //Кол-во раундов - 3
     private static final int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static String[] correctAnswer = new String[COUNTROUNDS];
 
