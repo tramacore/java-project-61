@@ -1,8 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Prime;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
@@ -25,7 +28,7 @@ public class Engine {
                 Even.text();
                 arrayAnswer = Even.even();
                 int[] arrayIntAnswer = Even.getQuest();
-                for (; counter < 3; ) {
+                for (; counter < 3;) {
                     questViewer(String.valueOf(arrayIntAnswer[counter]));
                     answerWaiter();
                     answer = answerScanner.nextLine();
@@ -41,7 +44,7 @@ public class Engine {
                 int[] arrayAnswerCalc = Calc.calcing();
                 String[] arrayQuestsCalc = Calc.getQuest();
                 Calc.text();
-                for (; counter < 3; ) {
+                for (; counter < 3;) {
                     questViewer(arrayQuestsCalc[counter]);
                     answerWaiter();
                     answer = answerScanner.next();
@@ -56,7 +59,7 @@ public class Engine {
             case 4:
                 int[] arrayAnswerGcd = GCD.gcdeing();
                 GCD.text();
-                for (; counter < 3; ) {
+                for (; counter < 3;) {
                     questViewer(GCD.getCorrectAnswer()[counter]);
                     answerWaiter();
                     answer = answerScanner.next();
@@ -70,7 +73,7 @@ public class Engine {
                 }
             case 5:
                 Progression.text();
-                for (; counter < 3; ) {
+                for (; counter < 3;) {
                     System.out.print("Question: ");
                     Progression.printArray();
                     System.out.println();
@@ -87,7 +90,7 @@ public class Engine {
                 break;
             case 6:
                 Prime.text();
-                for (; counter < 3; ) {
+                for (; counter < 3;) {
                     String correctAnswer = Prime.primer();
                     questViewer(String.valueOf(Prime.getQuest()));
                     answerWaiter();
@@ -101,6 +104,8 @@ public class Engine {
                     }
                 }
                 break;
+            default:
+                return;
         }
     }
 
@@ -109,8 +114,8 @@ public class Engine {
     }
 
     private static void wrongAnswer(String answer, String correctAnswer) {
-        System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was " +
-                "\'" + correctAnswer + "\'\n" + "Let's try again, " + Cli.getName() + "!");
+        System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was "
+                + "\'" + correctAnswer + "\'\n" + "Let's try again, " + Cli.getName() + "!");
     }
 
     private static void answerWaiter() {

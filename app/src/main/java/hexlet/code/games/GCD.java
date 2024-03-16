@@ -1,17 +1,15 @@
 package hexlet.code.games;
 
-import java.util.Arrays;
-
-public class GCD{
+public class GCD {
     private static String[] correctAnswer = new String[3];
 
     public static int[] gcdeing() {
         int[] answers = new int[3];
         for (int i = 0; i < 3; i++) {
-            int x = (int)(Math.random() * 100);
-            int y = (int)(Math.random() * 100);
+            int x = (int) (Math.random() * 100);
+            int y = (int) (Math.random() * 100);
             correctAnswer[i] = x + " " + y;
-            answers[i] = findGCD(x , y);
+            answers[i] = findGCD(x, y);
         }
         return answers;
     }
@@ -28,6 +26,7 @@ public class GCD{
         }
         return a;
     }
+
     public static void text() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }

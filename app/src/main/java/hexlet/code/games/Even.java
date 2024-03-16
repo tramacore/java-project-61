@@ -1,12 +1,10 @@
 package hexlet.code.games;
 
-
-import java.util.Arrays;
-
-public class Even{
+public class Even {
     static String correctAnswer;
     static int quest;
     private static int[] arrayIntAnswer = new int[3];
+
     public static String[] even() { /*При вызове метод создаст и заполнит 2 массива :
                                                                             1 с правильными ответами и 1 с числами*/
         String[] arrayAnswer = new String[3];
@@ -16,7 +14,7 @@ public class Even{
             if (quest % 2 == 0) { //Если число четное
                 arrayAnswer[i] = "yes"; //добавление правильного ответа в массив с правильными ответами
             } else if (quest % 2 != 0) { //Если число нечетное
-                arrayAnswer[i] = "no";//добавление правильного ответа в массив с правильными ответами
+                arrayAnswer[i] = "no"; //добавление правильного ответа в массив с правильными ответами
             }
         }
         return arrayAnswer;
@@ -25,7 +23,8 @@ public class Even{
     public static void text() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
-    public static int[] getQuest(){
+
+    public static int[] getQuest() {
         return arrayIntAnswer;
     }
 }
