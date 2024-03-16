@@ -1,27 +1,27 @@
 package hexlet.code.games;
 
 public class Calc {
-    private static final int countRounds = 3; //Кол-во раундов - 3
-    private static String[] questSaver = new String[countRounds];
-    private static final int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-    private static double theThirdPart = 0.33; //Т.к операторов 3 - то вероятность выбора одного из них - 1 / 3
-    private static double twoThirds = 0.66; //Вероятность выбора ТРЕТЬЕГО оператора
+    private static final int COUNTROUNDS = 3; //Кол-во раундов - 3
+    private static String[] questSaver = new String[COUNTROUNDS];
+    private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
+    private static double THETHIRDPART = 0.33; //Т.к операторов 3 - то вероятность выбора одного из них - 1 / 3
+    private static double TWOTHIRDS = 0.66; //Вероятность выбора ТРЕТЬЕГО оператора
 
     public static int[] calcing() {
-        int[] correctAnswers = new int[countRounds]; //Создание массива , в котором будут правильные ответы(на 3 раунда)
+        int[] correctAnswers = new int[COUNTROUNDS]; //Создание массива , в котором будут правильные ответы(на 3 раунда)
 
-        for (int i = 0; i < countRounds; i++) {
-            int firstValue = (int) (Math.random() * factor);
-            int secondValue = (int) (Math.random() * factor);
+        for (int i = 0; i < COUNTROUNDS; i++) {
+            int firstValue = (int) (Math.random() * FACTOR);
+            int secondValue = (int) (Math.random() * FACTOR);
             double operator = Math.random(); //Генерирует число для постановки оператора
             //Вероятность второго не нужна - т.к она больше первого , но меньше второго
-            if (operator <= theThirdPart) { //Если число меньше трети - то оператор - сложение
+            if (operator <= THETHIRDPART) { //Если число меньше трети - то оператор - сложение
                 correctAnswers[i] = firstValue + secondValue;
                 questSaver[i] = firstValue + " + " + secondValue;
-            } else if (operator > theThirdPart && operator < twoThirds) {
+            } else if (operator > THETHIRDPART && operator < TWOTHIRDS) {
                 correctAnswers[i] = firstValue * secondValue;
                 questSaver[i] = firstValue + " * " + secondValue;
-            } else if (operator > twoThirds) {
+            } else if (operator > TWOTHIRDS) {
                 correctAnswers[i] = firstValue - secondValue;
                 questSaver[i] = firstValue + " - " + secondValue;
             }
