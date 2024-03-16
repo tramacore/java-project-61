@@ -10,13 +10,13 @@ public class Calc implements GAMESET{
            double operator = Math.random();
            if(operator <= 0.33) {
                correctAnswers[i] = firstValue + secondValue;
-               questSaver[i] = firstValue + "+" + secondValue;
+               questSaver[i] = firstValue + " + " + secondValue;
            }else if (operator > 0.33 && operator < 0.66) {
                correctAnswers[i] = firstValue * secondValue;
-               questSaver[i] = firstValue + "*" + secondValue;
+               questSaver[i] = firstValue + " * " + secondValue;
            } else if (operator > 0.66) {
                correctAnswers[i] = firstValue - secondValue;
-               questSaver[i] = firstValue + "-" + secondValue;
+               questSaver[i] = firstValue + " - " + secondValue;
            }
         }
     return correctAnswers;
