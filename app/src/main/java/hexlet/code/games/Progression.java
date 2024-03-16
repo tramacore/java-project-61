@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Arrays;
 
-public class Progression implements GAMESET {
+public class Progression {
     private static int answer;//Переменная , в которой будет правильный ответ
 
     public static int[] progress() {
@@ -32,7 +32,7 @@ public class Progression implements GAMESET {
         for (int i = 0; i < arr.length; i++) {//Цикл , который проходит по массиву и
             if (i == x) {//                                         в месте X (созданной и отрегулированнной выше)
                 answer = arr[x];                   //подставит ..
-                arrToHide[x] = ".. ";
+                arrToHide[x] = "..";
             } else {
                 arrToHide[i] = arr[i] + "";
             }

@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.Arrays;
 
-public class GCD implements GAMESET{
+public class GCD{
     private static String[] correctAnswer = new String[3];
 
     public static int[] gcdeing() {

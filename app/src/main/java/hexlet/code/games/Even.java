@@ -3,7 +3,7 @@ package hexlet.code.games;
 
 import java.util.Arrays;
 
-public class Even implements GAMESET{
+public class Even{
     static String correctAnswer;
     static int quest;
     private static int[] arrayIntAnswer = new int[3];

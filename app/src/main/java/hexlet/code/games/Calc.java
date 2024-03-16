@@ -1,6 +1,6 @@
 package hexlet.code.games;
 import java.lang.Math;
-public class Calc implements GAMESET{
+public class Calc{
     private static String[] questSaver = new String[3];
     public static int[] calcing() {
         int[] correctAnswers = new int[3];
