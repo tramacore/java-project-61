@@ -101,7 +101,7 @@ public class Engine {
     }
 
     private static void questViewer(String quest) {
-        System.out.println("Question : " + quest);
+        System.out.println("Question: " + quest);
     }
 
     private static void wrongAnswer(String answer, String correctAnswer) {
