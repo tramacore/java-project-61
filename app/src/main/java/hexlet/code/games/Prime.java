@@ -2,10 +2,11 @@ package hexlet.code.games;
 
 public class Prime {
     private static int quest;
+    private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static String answer;
 
     public static String primer() {
-        int value = (int) (Math.random() * 100);
+        int value = (int) (Math.random() * FACTOR);
         quest = value;
         if (value < 2) {
             return "no";

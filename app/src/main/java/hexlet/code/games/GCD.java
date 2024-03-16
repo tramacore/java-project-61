@@ -2,14 +2,14 @@ package hexlet.code.games;
 
 public class GCD {
     public static final int COUNTROUNDS = 3; //Кол-во раундов - 3
-    private static final int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
+    private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static String[] correctAnswer = new String[COUNTROUNDS];
 
     public static int[] gcdeing() {
         int[] answers = new int[COUNTROUNDS];
         for (int i = 0; i < COUNTROUNDS; i++) {
-            int x = (int) (Math.random() * factor);
-            int y = (int) (Math.random() * factor);
+            int x = (int) (Math.random() * FACTOR);
+            int y = (int) (Math.random() * FACTOR);
             correctAnswer[i] = x + " " + y;
             answers[i] = findGCD(x, y);
         }

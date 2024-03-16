@@ -9,7 +9,7 @@ public class Even {
     public static String[] even() { /*При вызове метод создаст и заполнит 2 массива :
                                                                             1 с правильными ответами и 1 с числами*/
         String[] arrayAnswer = new String[COUNTROUNDS];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < COUNTROUNDS; i++) {
             quest = (int) (Math.random() * FACTOR); //Создание числа
             arrayIntAnswer[i] = quest; //Передача созданного числа в переменную поля , для использования в Engine
             if (quest % 2 == 0) { //Если число четное
