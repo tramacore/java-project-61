@@ -40,6 +40,15 @@ public class Progression implements GAMESET {
         return arrToHide;
     }
 
+    public static void printArray() {
+        String[] arrayToPrint = hidder(progress());
+        for (int i = 0; i < arrayToPrint.length; i++) {
+            if (i != arrayToPrint.length - 1) {
+                System.out.print(arrayToPrint[i] + " ");
+            }
+        }
+    }
+
     public static int getAnswer() {
         return answer;
     }
