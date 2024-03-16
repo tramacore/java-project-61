@@ -20,6 +20,8 @@ public class Engine {
     public static void starter(int numberOfGame) {
         Cli.nameReciever();
         int counter = 0;
+        int counterMax = 3;
+        int even = 2; //При выборе
         Scanner answerScanner = new Scanner(System.in);
         String answer;
         String[] arrayAnswer = new String[3];
@@ -28,7 +30,7 @@ public class Engine {
                 Even.text();
                 arrayAnswer = Even.even();
                 int[] arrayIntAnswer = Even.getQuest();
-                for (; counter < 3;) {
+                for (; counter < counterMax;) {
                     questViewer(String.valueOf(arrayIntAnswer[counter]));
                     answerWaiter();
                     answer = answerScanner.nextLine();
@@ -44,7 +46,7 @@ public class Engine {
                 int[] arrayAnswerCalc = Calc.calcing();
                 String[] arrayQuestsCalc = Calc.getQuest();
                 Calc.text();
-                for (; counter < 3;) {
+                for (; counter < counterMax;) {
                     questViewer(arrayQuestsCalc[counter]);
                     answerWaiter();
                     answer = answerScanner.next();
@@ -59,7 +61,7 @@ public class Engine {
             case 4:
                 int[] arrayAnswerGcd = GCD.gcdeing();
                 GCD.text();
-                for (; counter < 3;) {
+                for (; counter < counterMax;) {
                     questViewer(GCD.getCorrectAnswer()[counter]);
                     answerWaiter();
                     answer = answerScanner.next();
@@ -73,7 +75,7 @@ public class Engine {
                 }
             case 5:
                 Progression.text();
-                for (; counter < 3;) {
+                for (; counter < counterMax;) {
                     System.out.print("Question: ");
                     Progression.printArray();
                     System.out.println();
@@ -90,7 +92,7 @@ public class Engine {
                 break;
             case 6:
                 Prime.text();
-                for (; counter < 3;) {
+                for (; counter < counterMax;) {
                     String correctAnswer = Prime.primer();
                     questViewer(String.valueOf(Prime.getQuest()));
                     answerWaiter();

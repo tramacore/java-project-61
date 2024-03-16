@@ -1,15 +1,16 @@
 package hexlet.code.games;
 
 public class Even {
-    static String correctAnswer;
-    static int quest;
-    private static int[] arrayIntAnswer = new int[3];
+    private static int quest;
+    public static int countRounds = 3; //Кол-во раундов - 3
+    private static int[] arrayIntAnswer = new int[countRounds];
 
     public static String[] even() { /*При вызове метод создаст и заполнит 2 массива :
                                                                             1 с правильными ответами и 1 с числами*/
-        String[] arrayAnswer = new String[3];
+        String[] arrayAnswer = new String[countRounds];
+        int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
         for (int i = 0; i < 3; i++) {
-            quest = (int) (Math.random() * 100); //Создание числа
+            quest = (int) (Math.random() * factor); //Создание числа
             arrayIntAnswer[i] = quest; //Передача созданного числа в переменную поля , для использования в Engine
             if (quest % 2 == 0) { //Если число четное
                 arrayAnswer[i] = "yes"; //добавление правильного ответа в массив с правильными ответами

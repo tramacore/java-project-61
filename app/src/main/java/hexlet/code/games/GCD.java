@@ -1,13 +1,15 @@
 package hexlet.code.games;
 
 public class GCD {
-    private static String[] correctAnswer = new String[3];
+    public static int countRounds = 3; //Кол-во раундов - 3
+    private static String[] correctAnswer = new String[countRounds];
 
     public static int[] gcdeing() {
-        int[] answers = new int[3];
-        for (int i = 0; i < 3; i++) {
-            int x = (int) (Math.random() * 100);
-            int y = (int) (Math.random() * 100);
+        int[] answers = new int[countRounds];
+        int factor = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
+        for (int i = 0; i < countRounds; i++) {
+            int x = (int) (Math.random() * factor);
+            int y = (int) (Math.random() * factor);
             correctAnswer[i] = x + " " + y;
             answers[i] = findGCD(x, y);
         }
