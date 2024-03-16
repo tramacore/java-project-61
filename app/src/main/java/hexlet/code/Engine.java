@@ -106,7 +106,7 @@ public class Engine {
 
     private static void wrongAnswer(String answer, String correctAnswer) {
         System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was " +
-                "\'" + correctAnswer + "\'");
+                "\'" + correctAnswer + "\'\n" + "Let's try again, " + Cli.getName());
     }
 
     private static void answerWaiter() {
