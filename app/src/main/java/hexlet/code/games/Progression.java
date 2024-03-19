@@ -25,7 +25,7 @@ public class Progression {
         return arrayToShow;
     }
 
-    public static String[] hidder(int[] arr) { //СОздаст массив , который будет прятать число в себе
+    public static String[] hidder(int[] arr) { //Создаст массив , который будет прятать число в себе
         int x = (int) (Math.random() * FACTOR); //Задает каким по порядку будет спрятанное число
         String[] arrToHide = new String[arr.length]; //Создание самого массива , длиной массива с метода progress
         while (x >= arr.length) {
@@ -48,7 +48,7 @@ public class Progression {
             if (i != arrayToPrint.length - 1) {
                 System.out.print(arrayToPrint[i] + " ");
             } else {
-                System.out.print(arrayToPrint[i]);
+                System.out.print(arrayToPrint[i] + "\n");
             }
         }
     }

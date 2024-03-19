@@ -15,6 +15,7 @@ public class Engine {
     private static final int GCDMETHOD = 4;
     private static final int PROGRESSIONMETHOD = 5;
     private static final int PRIMEMETHOD = 6;
+    private static String[] arrayAnswer = new String[COUNTMAX];
 
     public static void win(int count) {
         if (count != COUNTMAX) {
@@ -26,92 +27,25 @@ public class Engine {
 
     public static void starter(int numberOfGame) {
         Cli.nameReciever();
-        int counter = 0;
-        Scanner answerScanner = new Scanner(System.in);
-        String answer;
-        String[] arrayAnswer = new String[COUNTMAX];
         if (numberOfGame == EVENMETHOD) {
-            Even.text();
-            arrayAnswer = Even.even();
-            int[] arrayIntAnswer = Even.getQuest();
-            for (; counter < COUNTMAX;) {
-                questViewer(String.valueOf(arrayIntAnswer[counter]));
-                answerWaiter();
-                answer = answerScanner.nextLine();
-                if (answer.equals(arrayAnswer[counter])) {
-                    counter++;
-                    win(counter);
-                } else {
-                    wrongAnswer(answer, arrayAnswer[counter]);
-                    return;
-                }
-            }
+            setEvenMethod(0);
+            return;
         }
         if (numberOfGame == CALCMETHOD) {
-            int[] arrayAnswerCalc = Calc.calcing();
-            String[] arrayQuestsCalc = Calc.getQuest();
-            Calc.text();
-            for (; counter < COUNTMAX;) {
-                questViewer(arrayQuestsCalc[counter]);
-                answerWaiter();
-                answer = answerScanner.next();
-                if (Integer.parseInt(answer) == arrayAnswerCalc[counter]) {
-                    counter++;
-                    win(counter);
-                } else {
-                    wrongAnswer(answer, String.valueOf(arrayAnswerCalc[counter]));
-                    return;
-                }
-            }
+            setCalcMethod(0);
+            return;
         }
         if (numberOfGame == GCDMETHOD) {
-            int[] arrayAnswerGcd = GCD.gcdeing();
-            GCD.text();
-            for (; counter < COUNTMAX;) {
-                questViewer(GCD.getCorrectAnswer()[counter]);
-                answerWaiter();
-                answer = answerScanner.next();
-                if (Integer.parseInt(answer) == arrayAnswerGcd[counter]) {
-                    counter++;
-                    win(counter);
-                } else {
-                    wrongAnswer(answer, String.valueOf(arrayAnswerGcd[counter]));
-                    return;
-                }
-            }
+            setGcdMethod(0);
+            return;
         }
         if (numberOfGame == PROGRESSIONMETHOD) {
-            Progression.text();
-            for (; counter < COUNTMAX;) {
-                System.out.print("Question: ");
-                Progression.printArray();
-                System.out.println();
-                answerWaiter();
-                answer = answerScanner.next();
-                if (Integer.parseInt(answer) == Progression.getAnswer()) {
-                    counter++;
-                    win(counter);
-                } else {
-                    wrongAnswer(answer, String.valueOf(Progression.getAnswer()));
-                    return;
-                }
-            }
+            setProgressionMethod(0);
+            return;
         }
         if (numberOfGame == PRIMEMETHOD) {
-            Prime.text();
-            for (; counter < COUNTMAX;) {
-                String correctAnswer = Prime.primer();
-                questViewer(String.valueOf(Prime.getQuest()));
-                answerWaiter();
-                answer = answerScanner.next();
-                if (answer.equals(correctAnswer)) {
-                    counter++;
-                    win(counter);
-                } else {
-                    wrongAnswer(answer, correctAnswer);
-                    return;
-                }
-            }
+            setPrimeMethod(0);
+            return;
         }
     }
 
@@ -122,6 +56,107 @@ public class Engine {
     private static void wrongAnswer(String answer, String correctAnswer) {
         System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was "
                 + "\'" + correctAnswer + "\'\n" + "Let's try again, " + Cli.getName() + "!");
+    }
+
+    private static void setEvenMethod(int counter) {
+        Even.text();
+        arrayAnswer = Even.even();
+        Scanner answerScanner = new Scanner(System.in);
+        String answer;
+        int[] arrayIntAnswer = Even.getQuest();
+        for (; counter < COUNTMAX;) {
+            questViewer(String.valueOf(arrayIntAnswer[counter]));
+            answerWaiter();
+            answer = answerScanner.nextLine();
+            if (answer.equals(arrayAnswer[counter])) {
+                counter++;
+                win(counter);
+                if (counter == 3) {
+                    answerScanner.close();
+                }
+            } else {
+                wrongAnswer(answer, arrayAnswer[counter]);
+                answerScanner.close();
+                return;
+            }
+        }
+    }
+
+    private static void setCalcMethod(int counter) {
+        int[] arrayAnswerCalc = Calc.calcing();
+        String[] arrayQuestsCalc = Calc.getQuest();
+        Calc.text();
+        Scanner answerScanner = new Scanner(System.in);
+        String answer;
+        for (; counter < COUNTMAX;) {
+            questViewer(arrayQuestsCalc[counter]);
+            answerWaiter();
+            answer = answerScanner.next();
+            if (Integer.parseInt(answer) == arrayAnswerCalc[counter]) {
+                counter++;
+                win(counter);
+            } else {
+                wrongAnswer(answer, String.valueOf(arrayAnswerCalc[counter]));
+                return;
+            }
+        }
+    }
+
+    private static void setGcdMethod(int counter) {
+        Scanner answerScanner = new Scanner(System.in);
+        String answer;
+        int[] arrayAnswerGcd = GCD.gcdeing();
+        GCD.text();
+        for (; counter < COUNTMAX;) {
+            questViewer(GCD.getCorrectAnswer()[counter]);
+            answerWaiter();
+            answer = answerScanner.next();
+            if (Integer.parseInt(answer) == arrayAnswerGcd[counter]) {
+                counter++;
+                win(counter);
+            } else {
+                wrongAnswer(answer, String.valueOf(arrayAnswerGcd[counter]));
+                return;
+            }
+        }
+    }
+
+    private static void setProgressionMethod(int counter) {
+        Scanner answerScanner = new Scanner(System.in);
+        String answer;
+        Progression.text();
+        for (; counter < COUNTMAX;) {
+            System.out.print("Question: "); //В методе нет questViewer() , поэтому используется ручной вывод
+            Progression.printArray();
+            answerWaiter();
+            answer = answerScanner.next();
+            if (Integer.parseInt(answer) == Progression.getAnswer()) {
+                counter++;
+                win(counter);
+            } else {
+                wrongAnswer(answer, String.valueOf(Progression.getAnswer()));
+                return;
+            }
+        }
+    }
+
+    private static void setPrimeMethod(int counter) {
+        Scanner answerScanner = new Scanner(System.in);
+        String answer;
+        Prime.text();
+        for (; counter < COUNTMAX;) {
+            String correctAnswer = Prime.primer();
+            questViewer(String.valueOf(Prime.getQuest()));
+            answerWaiter();
+            answer = answerScanner.next();
+            if (answer.equals(correctAnswer)) {
+                counter++;
+                win(counter);
+            } else {
+                wrongAnswer(answer, correctAnswer);
+                return;
+            }
+        }
     }
 
     private static void answerWaiter() {
