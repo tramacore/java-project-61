@@ -5,7 +5,8 @@ Hello , this is my **FIRST** hexlet project.
 '**make comp** to compilate app' \
 '**make clean** to delete build' \
 '**make run-dist** or **make** to run the app' \
-\ The name of the project : 
+
+The name of the project : 
 # Brain Games!
 ### 1.Menu 
 [![asciicast](https://asciinema.org/a/GzKffMdpDqTv1bUPDglwVyZbg.svg)](https://asciinema.org/a/GzKffMdpDqTv1bUPDglwVyZbg) 
