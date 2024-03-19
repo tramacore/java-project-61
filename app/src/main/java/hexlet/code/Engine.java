@@ -9,15 +9,16 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int COUNTMAX = 3;
-    private static final int EVENMETHOD = 2;
+    //Методы *.text() (Even.text() - пример) у каждой игры свой и определен в классе игры
+    private static final int COUNTMAX = 3; //Максимальное число раундов
+    private static final int EVENMETHOD = 2; //Назначения своего числа каждой игре
     private static final int CALCMETHOD = 3;
     private static final int GCDMETHOD = 4;
     private static final int PROGRESSIONMETHOD = 5;
     private static final int PRIMEMETHOD = 6;
     private static String[] arrayAnswer = new String[COUNTMAX];
 
-    public static void win(int count) {
+    public static void win(int count) { //Метод отвечающий за вывод в случае победы в раунде и в игре
         if (count != COUNTMAX) {
             System.out.println("Correct!");
         } else {
@@ -25,35 +26,29 @@ public class Engine {
         }
     }
 
-    public static void starter(int numberOfGame) {
-        Cli.nameReciever();
+    public static void starter(int numberOfGame) { //Запуск каждого метода со нулевым счетчиком
         if (numberOfGame == EVENMETHOD) {
             setEvenMethod(0);
-            return;
         }
         if (numberOfGame == CALCMETHOD) {
             setCalcMethod(0);
-            return;
         }
         if (numberOfGame == GCDMETHOD) {
             setGcdMethod(0);
-            return;
         }
         if (numberOfGame == PROGRESSIONMETHOD) {
             setProgressionMethod(0);
-            return;
         }
         if (numberOfGame == PRIMEMETHOD) {
             setPrimeMethod(0);
-            return;
         }
     }
 
     private static void questViewer(String quest) {
         System.out.println("Question: " + quest);
-    }
+    } //Вывод задания
 
-    private static void wrongAnswer(String answer, String correctAnswer) {
+    private static void wrongAnswer(String answer, String correctAnswer) { //Вывод неверного ответа
         System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was "
                 + "\'" + correctAnswer + "\'\n" + "Let's try again, " + Cli.getName() + "!");
     }
@@ -71,7 +66,7 @@ public class Engine {
             if (answer.equals(arrayAnswer[counter])) {
                 counter++;
                 win(counter);
-                if (counter == 3) {
+                if (counter == COUNTMAX) {
                     answerScanner.close();
                 }
             } else {
@@ -108,7 +103,7 @@ public class Engine {
         int[] arrayAnswerGcd = GCD.gcdeing();
         GCD.text();
         for (; counter < COUNTMAX;) {
-            questViewer(GCD.getCorrectAnswer()[counter]);
+            questViewer(GCD.getQuests()[counter]);
             answerWaiter();
             answer = answerScanner.next();
             if (Integer.parseInt(answer) == arrayAnswerGcd[counter]) {

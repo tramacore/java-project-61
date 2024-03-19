@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Menu.menu();
+        Menu.menu(); //Вывод меню
         Scanner scanAnswer = new Scanner(System.in);
-        boolean isRigth = false;
-        int answer = scanAnswer.nextInt();
+        int answer = scanAnswer.nextInt(); //Выбор игры
         switch (answer) {
             case 1:
-                Cli.nameReciever();
+                Cli.nameReciever(); //На '1' работает только получение имени
                 break;
-            case 0:
+            case 0: //При вводе '0' программа закрывается
                 return;
             default:
-                Engine.starter(answer);
+                Cli.nameReciever();
+                Engine.starter(answer); //При вводе любого другого числа запускается класс Engine
                 break;
         }
     }
