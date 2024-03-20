@@ -8,6 +8,7 @@ public class Prime {
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static String answer;
     private static String[] quest = new String[COUNTROUNDS];
+    private static final int PRIMEMETHOD = 6;
 
     public static String[] primer() {
         String[] answers = new String[COUNTROUNDS];
@@ -39,6 +40,6 @@ public class Prime {
     }
 
     public static void play() {
-        Engine.starter(6, primer(), getQuest());
+        Engine.starter(PRIMEMETHOD, primer(), getQuest());
     }
 }
