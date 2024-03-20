@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
+    private static final int CALCMETHOD = 3;
     private static final int COUNTROUNDS = 3; //Кол-во раундов - 3
     private static String[] questSaver = new String[COUNTROUNDS];
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
@@ -40,6 +41,6 @@ public class Calc {
         System.out.println("What is the result of the expression?");
     }
     public static void play() {
-        Engine.starter(3, calcing(), getQuest());
+        Engine.starter(CALCMETHOD, calcing(), getQuest());
     }
 }
