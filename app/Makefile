@@ -1,6 +1,18 @@
-run-dist:
+.DEFAULT_GOAL := run-dist
+
+run-dist: 
 	./build/install/app/bin/app
-comp :
+
+comp:
 	./gradlew installDist
-clean :
+
+clean:
 	./gradlew clean
+
+build:
+	./gradlew clean build
+
+install:
+  ./gradlew clean install
+
+.PHONY: build
