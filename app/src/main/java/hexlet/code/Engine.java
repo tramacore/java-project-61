@@ -24,7 +24,7 @@ public class Engine {
         descriprion(game);
         String answer;
         int counter = 0;
-        for (; counter < COUNTMAX; ) {
+        for (; counter < COUNTMAX;) {
             questViewer(quests[counter]);
             answerWaiter();
             answer = answerScanner.next();
