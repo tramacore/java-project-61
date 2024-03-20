@@ -14,7 +14,8 @@ public class Even {
         String[] arrayAnswer = new String[COUNTROUNDS];
         for (int i = 0; i < COUNTROUNDS; i++) {
             quest = (int) (Math.random() * FACTOR); //Создание числа
-            arrayQuests[i] = String.valueOf(quest); //Передача созданного числа в переменную поля , для использования в Engine
+            arrayQuests[i] = String.valueOf(quest); //Передача созданного числа в переменную поля ,
+  //для использования в Engine
             if (quest % 2 == 0) { //Если число четное
                 arrayAnswer[i] = "yes"; //добавление правильного ответа в массив с правильными ответами
             } else if (quest % 2 != 0) { //Если число нечетное
