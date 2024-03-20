@@ -14,7 +14,7 @@ public class Calc {
             int firstValue = (int) (Math.random() * FACTOR);
             int secondValue = (int) (Math.random() * FACTOR);
             double operator = Math.random(); //Генерирует число для постановки оператора
-            //Вероятность второго не нужна - т.к она больше первого , но меньше второго
+            //Вероятность второго не нужна - т.к она больше первого , но меньше третьего
             if (operator <= THETHIRDPART) { //Если число меньше трети - то оператор - сложение
                 correctAnswers[i] = firstValue + secondValue;
                 questSaver[i] = firstValue + " + " + secondValue;
