@@ -43,7 +43,7 @@ public class Progression {
             answer[i] = String.valueOf(arrToHide[x]);
             for (int j = 0; j < arrToHide.length; j++) { //Цикл , который проходит по массиву и
                 if (j == x) {                            //в месте X (созданной и отрегулированнной выше)
-                    saver += " .. ";                 //подставит ".."
+                    saver += ".. ";                 //подставит ".."
                 } else {
                     saver += arrToHide[j] + " ";
                 }
