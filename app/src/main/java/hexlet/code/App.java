@@ -9,6 +9,14 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
+    private static final int EVENMETHOD = 2;
+    private static final int CALMETHOD = 3;
+    private static final int GCDMETHOD = 4;
+    private static final int PROGRESSIONMETHOD = 5;
+    private static final int PRIMEMETHOD = 6;
+    private static final int EXIT = 0;
+    private static final int NAMER = 1;
+
     public static void main(String[] args) {
         Menu.menu(); //Вывод меню
         Scanner scanAnswer = new Scanner(System.in);
@@ -16,27 +24,30 @@ public class App {
         if (answer != 0) {
             Cli.nameReciever();
         }
-        switch (answer) {
-            case 1:
+        if (answer == EVENMETHOD) {
+             Even.play();
                 return;
-            case 0: //При вводе '0' программа закрывается
-                return;
-            case 2:
-                Even.play();
-                return;
-            case 3:
-                Calc.play();
-                return;
-            case 4:
-                GCD.play();
-                return;
-            case 5:
-                Progression.play();
-                return;
-            case 6:
-                Prime.play();
-            default:
-                break;
         }
+        if (answer == CALMETHOD) {
+             Calc.play();
+                return;
+        }
+        if (answer == GCDMETHOD) {
+             GCD.play();
+                return;
+        }
+        if (answer == PROGRESSIONMETHOD) {
+             Progression.play();
+                return;
+        }
+        if (answer == PRIMEMETHOD) {
+             Prime.play();
+                return;
+        }
+        if (answer == EXIT) {
+             return;
+        }
+        if (answer == NAMER) {
+             return;
     }
 }
