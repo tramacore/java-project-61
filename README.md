@@ -5,7 +5,7 @@ Hello , this is my **FIRST** hexlet project.
 ##### MAKEFILE 
 **make comp** to compilate app \
 **make clean** to delete build \
-**make run-dist** or **make** to run the app \
+**make run-dist** or **make** to run the app
 
 The name of the project : 
 # Brain Games!
