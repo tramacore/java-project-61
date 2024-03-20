@@ -2,15 +2,14 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
-
 public class Progression {
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static final int FACTORTOLENGTH = 10; //т.к Math.random() генерирует число от 0 до 1 -
-    private static final int COUNTROUNDS = 3;                                                                              // то умножаем это число на 10
+    private static final int COUNTROUNDS = 3;                                   // то умножаем это число на 10
     private static final int MAXDIGIT = 5; // По условию массив должен быт не менее 5 чисел
     //для создания массива до 10 символов
     private static String[] answers = new String[COUNTROUNDS];
+    private static final int PROGRESSIONMETHOD = 5;
 
     public static int[] progress() {
         int generate = (int) (Math.random() * FACTORTOLENGTH); //Создание длины начального массива
@@ -36,9 +35,9 @@ public class Progression {
         for (int i = 0; i < COUNTROUNDS; i++) {
             saver = "";
             int x = (int) (Math.random() * FACTOR); //Задает каким по порядку будет спрятанное число
-            int[] arrToHide = progress();//Создание самого массива , длиной массива с метода progress
+            int[] arrToHide = progress(); //Создание самого массива , длиной массива с метода progress
             while (x >= arrToHide.length) {
-                x = (int) (Math.random() * FACTOR);//Необходимо чтобы число не выходило за рамки длины массива
+                x = (int) (Math.random() * FACTOR); //Необходимо чтобы число не выходило за рамки длины массива
             }
             answer[i] = String.valueOf(arrToHide[x]);
             for (int j = 0; j < arrToHide.length; j++) { //Цикл , который проходит по массиву и
@@ -59,6 +58,6 @@ public class Progression {
 
 
     public static void play() {
-        Engine.starter(5, hidder(), getAnswers());
+        Engine.starter(PROGRESSIONMETHOD, hidder(), getAnswers());
     }
 }
