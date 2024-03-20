@@ -10,7 +10,8 @@ public class Calc {
     private static final double TWOTHIRDS = 0.66; //Вероятность выбора ТРЕТЬЕГО оператора
 
     public static String[] calcing() {
-        String[] correctAnswers = new String[COUNTROUNDS]; //Создание массива , в котором будут правильные ответы(на 3 раунда)
+        String[] correctAnswers = new String[COUNTROUNDS]; //Создание массива , 
+ //в котором будут правильные ответы(на 3 раунда)
 
         for (int i = 0; i < COUNTROUNDS; i++) {
             int firstValue = (int) (Math.random() * FACTOR);
@@ -39,6 +40,6 @@ public class Calc {
         System.out.println("What is the result of the expression?");
     }
     public static void play() {
-        Engine.starter(3 , calcing(),getQuest());
+        Engine.starter(3, calcing(), getQuest());
     }
 }
