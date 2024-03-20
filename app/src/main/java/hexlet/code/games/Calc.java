@@ -25,7 +25,7 @@ public class Calc {
             } else if (operator > THETHIRDPART && operator < TWOTHIRDS) {
                 correctAnswers[i] = String.valueOf(firstValue * secondValue);
                 questSaver[i] = firstValue + " * " + secondValue;
-            } else if (operator > TWOTHIRDS) {
+            } else {
                 correctAnswers[i] = String.valueOf(firstValue - secondValue);
                 questSaver[i] = firstValue + " - " + secondValue;
             }
