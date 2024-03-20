@@ -49,5 +49,6 @@ public class App {
         }
         if (answer == NAMER) {
              return;
+        }
     }
 }
