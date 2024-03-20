@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD {
+    private static final int GCDMETHOD = 4;
     public static final int COUNTROUNDS = 3; //Кол-во раундов - 3
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static String[] quests = new String[COUNTROUNDS]; //Массив с заданием
@@ -36,6 +37,6 @@ public class GCD {
     }
 
     public static void play() {
-        Engine.starter(4, gcdeing(), getQuests());
+        Engine.starter(GCDMETHOD, gcdeing(), getQuests());
     }
 }
