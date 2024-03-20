@@ -26,29 +26,22 @@ public class App {
         }
         if (answer == EVENMETHOD) {
              Even.play();
-                return;
         }
         if (answer == CALMETHOD) {
              Calc.play();
-                return;
         }
         if (answer == GCDMETHOD) {
              GCD.play();
-                return;
         }
         if (answer == PROGRESSIONMETHOD) {
              Progression.play();
-                return;
         }
         if (answer == PRIMEMETHOD) {
              Prime.play();
-                return;
         }
         if (answer == EXIT) {
-             return;
         }
         if (answer == NAMER) {
-             return;
         }
     }
 }
