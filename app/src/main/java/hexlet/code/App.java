@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
 import java.util.Scanner;
 
 public class App {
@@ -7,15 +9,29 @@ public class App {
         Menu.menu(); //Вывод меню
         Scanner scanAnswer = new Scanner(System.in);
         int answer = scanAnswer.nextInt(); //Выбор игры
+        if (answer != 0) {
+            Cli.nameReciever();
+        }
         switch (answer) {
             case 1:
-                Cli.nameReciever(); //На '1' работает только получение имени
-                break;
+                return;
             case 0: //При вводе '0' программа закрывается
                 return;
+            case 2:
+                Even.play();
+                return;
+            case 3:
+                Calc.play();
+                return;
+            case 4:
+                GCD.play();
+                return;
+            case 5:
+                Progression.play();
+                return;
+            case 6:
+                Prime.play();
             default:
-                Cli.nameReciever();
-                Engine.starter(answer); //При вводе любого другого числа запускается класс Engine
                 break;
         }
     }

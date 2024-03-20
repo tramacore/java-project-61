@@ -1,12 +1,17 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.Arrays;
+
 public class Progression {
-    private static int answer; //Переменная , в которой будет правильный ответ
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static final int FACTORTOLENGTH = 10; //т.к Math.random() генерирует число от 0 до 1 -
-                                                                                  // то умножаем это число на 10
+    private static final int COUNTROUNDS = 3;                                                                              // то умножаем это число на 10
     private static final int MAXDIGIT = 5; // По условию массив должен быт не менее 5 чисел
     //для создания массива до 10 символов
+    private static String[] answers = new String[COUNTROUNDS];
+
     public static int[] progress() {
         int generate = (int) (Math.random() * FACTORTOLENGTH); //Создание длины начального массива
         while (generate < MAXDIGIT) {
@@ -25,39 +30,35 @@ public class Progression {
         return arrayToShow;
     }
 
-    public static String[] hidder(int[] arr) { //Создаст массив , который будет прятать число в себе
-        int x = (int) (Math.random() * FACTOR); //Задает каким по порядку будет спрятанное число
-        String[] arrToHide = new String[arr.length]; //Создание самого массива , длиной массива с метода progress
-        while (x >= arr.length) {
-            x = (int) (Math.random() * FACTOR); //Необходимо чтобы число не выходило за рамки длины массива
-        }
-        for (int i = 0; i < arr.length; i++) { //Цикл , который проходит по массиву и
-            if (i == x) { //                                         в месте X (созданной и отрегулированнной выше)
-                answer = arr[x];                   //подставит ..
-                arrToHide[x] = "..";
-            } else {
-                arrToHide[i] = arr[i] + "";
+    public static String[] hidder() { //Создаст массив , который будет прятать число в себе
+        String[] answer = new String[COUNTROUNDS];
+        String saver = "";
+        for (int i = 0; i < COUNTROUNDS; i++) {
+            saver = "";
+            int x = (int) (Math.random() * FACTOR); //Задает каким по порядку будет спрятанное число
+            int[] arrToHide = progress();//Создание самого массива , длиной массива с метода progress
+            while (x >= arrToHide.length) {
+                x = (int) (Math.random() * FACTOR);//Необходимо чтобы число не выходило за рамки длины массива
             }
-        }
-        return arrToHide;
-    }
-
-    public static void printArray() {
-        String[] arrayToPrint = hidder(progress());
-        for (int i = 0; i < arrayToPrint.length; i++) {
-            if (i != arrayToPrint.length - 1) {
-                System.out.print(arrayToPrint[i] + " ");
-            } else {
-                System.out.print(arrayToPrint[i] + "\n");
+            answer[i] = String.valueOf(arrToHide[x]);
+            for (int j = 0; j < arrToHide.length; j++) { //Цикл , который проходит по массиву и
+                if (j == x) {                            //в месте X (созданной и отрегулированнной выше)
+                    saver += " .. ";                 //подставит ".."
+                } else {
+                    saver += arrToHide[j] + " ";
+                }
             }
+            answers[i] = saver;
         }
-    }
-
-    public static int getAnswer() {
         return answer;
     }
 
-    public static void text() {
-        System.out.println("What number is missing in the progression?");
+    public static String[] getAnswers() {
+        return answers;
+    }
+
+
+    public static void play() {
+        Engine.starter(5, hidder(), getAnswers());
     }
 }
