@@ -23,6 +23,8 @@ public class App {
         int answer = scanAnswer.nextInt(); //Выбор игры
         if (answer != 0) {
             Cli.nameReciever();
+        } else { 
+            return;
         }
         if (answer == EVENMETHOD) {
              Even.play();
@@ -38,10 +40,6 @@ public class App {
         }
         if (answer == PRIMEMETHOD) {
              Prime.play();
-        }
-        if (answer == EXIT) {
-        }
-        if (answer == NAMER) {
         }
     }
 }
