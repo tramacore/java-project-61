@@ -23,7 +23,7 @@ public class App {
         int answer = scanAnswer.nextInt(); //Выбор игры
         if (answer != 0) {
             Cli.nameReciever();
-        } else { 
+        } else {
             return;
         }
         if (answer == EVENMETHOD) {
