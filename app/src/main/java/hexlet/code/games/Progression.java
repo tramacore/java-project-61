@@ -5,10 +5,10 @@ import hexlet.code.Engine;
 public class Progression {
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static final int FACTORTOLENGTH = 10; //т.к Math.random() генерирует число от 0 до 1 -
-    private static final int COUNTROUNDS = 3;                                   // то умножаем это число на 10
+                                          // то умножаем это число на 10
     private static final int MAXDIGIT = 5; // По условию массив должен быт не менее 5 чисел
     //для создания массива до 10 символов
-    private static String[] answers = new String[COUNTROUNDS];
+    private static String[] answers = new String[Engine.ROUNDS];
     private static final int PROGRESSIONMETHOD = 5;
 
     public static int[] progress() {
@@ -30,9 +30,9 @@ public class Progression {
     }
 
     public static String[] hidder() { //Создаст массив , который будет прятать число в себе
-        String[] answer = new String[COUNTROUNDS];
+        String[] answer = new String[Engine.ROUNDS];
         String saver = "";
-        for (int i = 0; i < COUNTROUNDS; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             saver = "";
             int x = (int) (Math.random() * FACTOR); //Задает каким по порядку будет спрятанное число
             int[] arrToHide = progress(); //Создание самого массива , длиной массива с метода progress
@@ -57,7 +57,7 @@ public class Progression {
     }
 
 
-    public static void play() {
-        Engine.starter(PROGRESSIONMETHOD, hidder(), getAnswers());
+    public static void play(String name) {
+        Engine.starter(PROGRESSIONMETHOD, hidder(), getAnswers(), name);
     }
 }

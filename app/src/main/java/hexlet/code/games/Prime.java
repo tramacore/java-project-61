@@ -4,15 +4,14 @@ import hexlet.code.Engine;
 
 public class Prime {
 
-    private static final int COUNTROUNDS = 3;
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static String answer;
-    private static String[] quest = new String[COUNTROUNDS];
+    private static String[] quest = new String[Engine.ROUNDS];
     private static final int PRIMEMETHOD = 6;
 
     public static String[] primer() {
-        String[] answers = new String[COUNTROUNDS];
-        for (int i = 0; i < COUNTROUNDS; i++) {
+        String[] answers = new String[Engine.ROUNDS];
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int value = (int) (Math.random() * FACTOR);
             quest[i] = String.valueOf(value);
             if (value < 2) {
@@ -39,7 +38,7 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    public static void play() {
-        Engine.starter(PRIMEMETHOD, primer(), getQuest());
+    public static void play(String name) {
+        Engine.starter(PRIMEMETHOD, primer(), getQuest(), name);
     }
 }

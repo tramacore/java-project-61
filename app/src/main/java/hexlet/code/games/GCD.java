@@ -4,13 +4,12 @@ import hexlet.code.Engine;
 
 public class GCD {
     private static final int GCDMETHOD = 4;
-    public static final int COUNTROUNDS = 3; //Кол-во раундов - 3
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-    private static String[] quests = new String[COUNTROUNDS]; //Массив с заданием
+    private static String[] quests = new String[Engine.ROUNDS]; //Массив с заданием
 
     public static String[] gcdeing() {
-        String[] answers = new String[COUNTROUNDS]; //Массив с ответами
-        for (int i = 0; i < COUNTROUNDS; i++) {
+        String[] answers = new String[Engine.ROUNDS]; //Массив с ответами
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int x = (int) (Math.random() * FACTOR); //Создание двух чисел для задания
             int y = (int) (Math.random() * FACTOR);
             quests[i] = x + " " + y; //Присвоение i элементу массива строку с заданием
@@ -36,7 +35,7 @@ public class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    public static void play() {
-        Engine.starter(GCDMETHOD, gcdeing(), getQuests());
+    public static void play(String name) {
+        Engine.starter(GCDMETHOD, gcdeing(), getQuests(), name);
     }
 }
