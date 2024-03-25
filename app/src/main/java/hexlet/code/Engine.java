@@ -17,7 +17,7 @@ public class Engine {
         Scanner answerScanner = new Scanner(System.in);
         String answer;
         int counter = 0;
-        for (; counter < ROUNDS;) {
+        while (counter < ROUNDS) {
             questViewer(quests[counter]);
             answerWaiter();
             answer = answerScanner.next();
