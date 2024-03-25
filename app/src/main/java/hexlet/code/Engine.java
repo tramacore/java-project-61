@@ -13,7 +13,7 @@ public class Engine {
         }
     }
 
-    public static void starter(int game, String[] answersGame, String[] quests, String name) {
+    public static void starter(String[] answersGame, String[] quests, String name) {
         Scanner answerScanner = new Scanner(System.in);
         String answer;
         int counter = 0;

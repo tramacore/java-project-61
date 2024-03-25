@@ -9,7 +9,7 @@ public class Progression {
     private static final int MAXDIGIT = 5; // По условию массив должен быт не менее 5 чисел
     //для создания массива до 10 символов
     private static String[] answers = new String[Engine.ROUNDS];
-    private static final int PROGRESSIONMETHOD = 5;
+
 
     public static int[] progress() {
         int generate = (int) (Math.random() * FACTORTOLENGTH); //Создание длины начального массива
@@ -58,6 +58,6 @@ public class Progression {
 
 
     public static void play(String name) {
-        Engine.starter(PROGRESSIONMETHOD, hidder(), getAnswers(), name);
+        Engine.starter(hidder(), getAnswers(), name);
     }
 }

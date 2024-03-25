@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    private static final int EVENMETHOD = 2;
     private static int quest;
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
 
@@ -29,6 +28,6 @@ public class Even {
         return arrayQuests;
     }
     public static void play(String name) {
-        Engine.starter(EVENMETHOD, even(), getQuest(), name);
+        Engine.starter(even(), getQuest(), name);
     }
 }

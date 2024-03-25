@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    private static final int CALCMETHOD = 3;
     private static String[] questSaver = new String[Engine.ROUNDS];
     private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
     private static final double THETHIRDPART = 0.33; //Т.к операторов 3 - то вероятность выбора одного из них - 1 / 3
@@ -52,6 +51,6 @@ public class Calc {
     }
 
     public static void play(String name) {
-        Engine.starter(CALCMETHOD, calcing(), getQuest(), name);
+        Engine.starter(calcing(), getQuest(), name);
     }
 }
