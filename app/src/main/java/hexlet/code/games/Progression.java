@@ -26,18 +26,13 @@ public class Progression {
         String saver;
         for (int i = 0; i < Engine.ROUNDS; i++) {
             saver = "";
-
             int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
             int rule = Utils.generateNumber(RULENUMBERMIN, RULENUMBERMAX);
             int length = Utils.generateNumber(MINLENGTH, MAXLENGTH);
-
             String[] arrToHide = makeProgression(firstValue, rule, length);
-
             int hideNumber = Utils.generateNumber(0, length - 1);
-
             answer[i][1] = String.valueOf(arrToHide[hideNumber]); //Сохранение ответов
             arrToHide[hideNumber] = ".. ";
-
             for (int j = 0; j < arrToHide.length; j++) { //Цикл конкатенирует строку saver для передачи в нужном формате
                 if (j == hideNumber) {
                     saver += ".. ";
@@ -45,7 +40,6 @@ public class Progression {
                     saver += arrToHide[j] + " ";
                 }
             }
-
             answer[i][0] = saver; //Сохранение заданий
         }
         return answer;
