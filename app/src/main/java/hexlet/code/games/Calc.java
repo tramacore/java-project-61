@@ -8,11 +8,10 @@ public class Calc {
     public static String[][] calcing() {
         String[][] correctAnswers = new String[Engine.ROUNDS][2]; //Создание массива ,
         //в котором будут правильные ответы(на 3 раунда)
-
         for (int i = 0; i < Engine.ROUNDS; i++) {
             final char[] operators = {'+', '-', '*'};
-            int firstValue = Utils.generateNumber(0, 100);
-            int secondValue = Utils.generateNumber(0, 100);
+            int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
+            int secondValue = Utils.generateNumber(0, Engine.MAXVALUE);
             var indexOperator = Utils.generateNumber(0, operators.length - 1);
 
             var operator = operators[indexOperator];

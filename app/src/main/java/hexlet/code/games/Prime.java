@@ -7,7 +7,7 @@ public class Prime {
     public static String[][] primer() {
         String[][] answers = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int value = Utils.generateNumber(0, 100);
+            int value = Utils.generateNumber(0, Engine.MAXVALUE);
             answers[i][0] = String.valueOf(value);
             answers[i][1] = isPrime(value);
         }

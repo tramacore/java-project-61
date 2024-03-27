@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS = 3; //Максимальное число раундов
-
+    public static final int MAXVALUE = 100;
     public static void starter(String[][] answersGame, String description) {
         Scanner answerScanner = new Scanner(System.in);
         String answer;

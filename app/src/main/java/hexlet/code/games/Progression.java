@@ -4,6 +4,10 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
+    private static final int RULENUMBERMIN = 1;
+    private static final int RULENUMBERMAX = 10;
+    private static final int MINLENGTH = 5;
+    private static final int MAXLENGTH = 12;
     public static String[] makeProgression(int firstValue, int rule, int length) {
         int[] arrayToShow = new int[length];
         String[] stringArray = new String[length];
@@ -23,9 +27,9 @@ public class Progression {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             saver = "";
 
-            int firstValue = Utils.generateNumber(0, 100);
-            int rule = Utils.generateNumber(1, 10);
-            int length = Utils.generateNumber(5, 12);
+            int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
+            int rule = Utils.generateNumber(RULENUMBERMIN, RULENUMBERMAX);
+            int length = Utils.generateNumber(MINLENGTH, MAXLENGTH);
 
             String[] arrToHide = makeProgression(firstValue, rule, length);
 

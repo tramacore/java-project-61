@@ -8,12 +8,12 @@ public class Even {
                                                                             1 с правильными ответами и 1 с числами*/
         String[][] arrayAnswer = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int quest = Utils.generateNumber(0, 100); //Создание числа
+            int quest = Utils.generateNumber(Engine.MINVALUE, Engine.MAXVALUE); //Создание числа
             arrayAnswer[i][0] = String.valueOf(quest);
             if (quest % 2 == 0) { //Если число четное
                 arrayAnswer[i][1] = "yes"; //добавление правильного ответа в массив с правильными ответами
             } else { //Если число нечетное
-                arrayAnswer[i][1] = "no"; //добавление правильного ответа в массив с правильными ответами
+                arrayAnswer[i][1] = "no";
             }
         }
         return arrayAnswer;
