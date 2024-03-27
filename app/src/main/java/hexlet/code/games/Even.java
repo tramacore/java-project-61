@@ -1,33 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
-    private static int quest;
-    private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-
-    private static String[] arrayQuests = new String[Engine.ROUNDS];
-
-    public static String[] even() { /*При вызове метод создаст и заполнит 2 массива :
+    public static String[][] even() { /*При вызове метод создаст и заполнит 2 массива :
                                                                             1 с правильными ответами и 1 с числами*/
-        String[] arrayAnswer = new String[Engine.ROUNDS];
+        String[][] arrayAnswer = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            quest = (int) (Math.random() * FACTOR); //Создание числа
-            arrayQuests[i] = String.valueOf(quest); //Передача созданного числа в переменную поля ,
-  //для использования в Engine
+            int quest = Utils.generateNumber(0, 100); //Создание числа
+            arrayAnswer[i][0] = String.valueOf(quest);
             if (quest % 2 == 0) { //Если число четное
-                arrayAnswer[i] = "yes"; //добавление правильного ответа в массив с правильными ответами
-            } else if (quest % 2 != 0) { //Если число нечетное
-                arrayAnswer[i] = "no"; //добавление правильного ответа в массив с правильными ответами
+                arrayAnswer[i][1] = "yes"; //добавление правильного ответа в массив с правильными ответами
+            } else { //Если число нечетное
+                arrayAnswer[i][1] = "no"; //добавление правильного ответа в массив с правильными ответами
             }
         }
         return arrayAnswer;
     }
 
-    public static String[] getQuest() {
-        return arrayQuests;
-    }
-    public static void play(String name) {
-        Engine.starter(even(), getQuest(), name);
+    public static void play() {
+        String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.starter(even(), description);
     }
 }

@@ -1,63 +1,54 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Progression {
-    private static final int FACTOR = 100; //т.к Math.random() генерирует число от 0 до 1 - то умножаем это число на 100
-    private static final int FACTORTOLENGTH = 10; //т.к Math.random() генерирует число от 0 до 1 -
-                                          // то умножаем это число на 10
-    private static final int MAXDIGIT = 5; // По условию массив должен быт не менее 5 чисел
-    //для создания массива до 10 символов
-    private static String[] answers = new String[Engine.ROUNDS];
-
-
-    public static int[] progress() {
-        int generate = (int) (Math.random() * FACTORTOLENGTH); //Создание длины начального массива
-        while (generate < MAXDIGIT) {
-            generate = (int) (Math.random() * FACTORTOLENGTH);
+    public static String[] makeProgression(int firstValue, int rule, int length) {
+        int[] arrayToShow = new int[length];
+        String[] stringArray = new String[length];
+        arrayToShow[0] = firstValue;
+        for (int i = 1; i < length; i++) {
+            arrayToShow[i] = arrayToShow[i - 1] + rule;
         }
-        int[] arrayToShow = new int[generate]; //Создание самого массива , длиной заданной выше
-        arrayToShow[0] = (int) (Math.random() * FACTOR); //Задание первого числа массива
-        int x;
-        do {
-            x = (int) (Math.random() * FACTORTOLENGTH); //Задание числа , которое будет законом для прогрессии
-        } while (x == 0); //оно не будет = 0 , тк в таком случае вся прогрессия равна первому числу
-        for (int i = 1; i < generate; i++) {
-            arrayToShow[i] = arrayToShow[i - 1] + x; /*Задание прогрессии , путем что следующий элемент
-                                            массива = предыдущее + число-закон  */
+        for (int i = 0; i < length; i++) {
+            stringArray[i] = String.valueOf(arrayToShow[i]);
         }
-        return arrayToShow;
+        return stringArray;
     }
 
-    public static String[] hidder() { //Создаст массив , который будет прятать число в себе
-        String[] answer = new String[Engine.ROUNDS];
-        String saver = "";
+    public static String[][] hidder() { //Создаст массив , который будет прятать число в себе
+        String[][] answer = new String[Engine.ROUNDS][2];
+        String saver;
         for (int i = 0; i < Engine.ROUNDS; i++) {
             saver = "";
-            int x = (int) (Math.random() * FACTOR); //Задает каким по порядку будет спрятанное число
-            int[] arrToHide = progress(); //Создание самого массива , длиной массива с метода progress
-            while (x >= arrToHide.length) {
-                x = (int) (Math.random() * FACTOR); //Необходимо чтобы число не выходило за рамки длины массива
-            }
-            answer[i] = String.valueOf(arrToHide[x]);
-            for (int j = 0; j < arrToHide.length; j++) { //Цикл , который проходит по массиву и
-                if (j == x) {                            //в месте X (созданной и отрегулированнной выше)
-                    saver += ".. ";                 //подставит ".."
+
+            int firstValue = Utils.generateNumber(0, 100);
+            int rule = Utils.generateNumber(1, 10);
+            int length = Utils.generateNumber(5, 12);
+
+            String[] arrToHide = makeProgression(firstValue, rule, length);
+
+            int hideNumber = Utils.generateNumber(0, length - 1);
+
+            answer[i][1] = String.valueOf(arrToHide[hideNumber]); //Сохранение ответов
+            arrToHide[hideNumber] = ".. ";
+
+            for (int j = 0; j < arrToHide.length; j++) { //Цикл конкатенирует строку saver для передачи в нужном формате
+                if (j == hideNumber) {
+                    saver += ".. ";
                 } else {
                     saver += arrToHide[j] + " ";
                 }
             }
-            answers[i] = saver;
+
+            answer[i][0] = saver; //Сохранение заданий
         }
         return answer;
     }
 
-    public static String[] getAnswers() {
-        return answers;
-    }
-
-
-    public static void play(String name) {
-        Engine.starter(hidder(), getAnswers(), name);
+    public static void play() {
+        String descriprion = "What number is missing in the progression?";
+        Engine.starter(hidder(), descriprion);
     }
 }
