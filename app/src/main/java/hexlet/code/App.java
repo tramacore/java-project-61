@@ -40,6 +40,10 @@ public class App {
             Progression.play();
         } else if (answer == PRIMEMETHOD) {
             Prime.play();
+        } else {
+            System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
+            String name = scanner.next();
+            System.out.printf("Hello, %s!\n", name);
         }
     }
 }
