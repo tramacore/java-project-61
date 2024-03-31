@@ -25,7 +25,7 @@ public class Progression {
             String[] arrToHide = makeProgression(firstValue, rule, length);
             int hideNumber = Utils.generateNumber(0, length - 1);
             answer[i][1] = String.valueOf(arrToHide[hideNumber]); //Сохранение ответов
-            arrToHide[hideNumber] = ".. ";
+            arrToHide[hideNumber] = "..";
             String question = String.join(" ", arrToHide);
             answer[i][0] = question; //Сохранение заданий
         }
