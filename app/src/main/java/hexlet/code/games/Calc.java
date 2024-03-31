@@ -27,9 +27,10 @@ public class Calc {
             return firstValue + secondValue;
         } else if (factor == '*') {
             return firstValue * secondValue;
-        } else {
+        } else if (factor == '-') {
             return firstValue - secondValue;
         }
+        return 0;
     }
 
     public static void play() {

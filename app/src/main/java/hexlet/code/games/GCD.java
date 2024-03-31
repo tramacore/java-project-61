@@ -11,12 +11,12 @@ public class GCD {
             int x = Utils.generateNumber(0, Engine.MAXVALUE);
             int y = Utils.generateNumber(0, Engine.MAXVALUE);
             answers[i][0] = x + " " + y; //Присвоение i элементу массива строку с заданием
-            answers[i][1] = String.valueOf(findGCD(x, y)); //Присвоение i элементу массива число с правильным ответом
+            answers[i][1] = String.valueOf(gcd(x, y)); //Присвоение i элементу массива число с правильным ответом
         }
         return answers;
     }
 
-    public static int findGCD(int a, int b) { //Само нахождение наибольшего общего делителя
+    public static int gcd(int a, int b) { //Само нахождение наибольшего общего делителя
         while (b != 0) {
             int temp = b;
             b = a % b;

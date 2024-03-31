@@ -15,6 +15,7 @@ public class App {
     private static final int PROGRESSIONMETHOD = 5;
     private static final int PRIMEMETHOD = 6;
     private static final int EXIT = 0;
+    private static final int GREETING = 1;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -29,8 +30,7 @@ public class App {
         int answer = scanner.nextInt(); //Выбор игры
         if (answer == EXIT) {
             return;
-        }
-        if (answer == EVENMETHOD) {
+        } else if (answer == EVENMETHOD) {
             Even.play();
         } else if (answer == CALMETHOD) {
             Calc.play();
@@ -40,10 +40,12 @@ public class App {
             Progression.play();
         } else if (answer == PRIMEMETHOD) {
             Prime.play();
-        } else {
+        } else if (answer == GREETING) {
             System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
             String name = scanner.next();
             System.out.printf("Hello, %s!\n", name);
+        } else {
+            throw new RuntimeException("Unknown user choice :" + answer);
         }
     }
 }

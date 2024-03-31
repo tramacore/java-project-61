@@ -9,20 +9,25 @@ public class Prime {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int value = Utils.generateNumber(0, Engine.MAXVALUE);
             answers[i][0] = String.valueOf(value);
-            answers[i][1] = isPrime(value);
+            if (isPrime(value)) {
+                answers[i][1] = "yes";
+            } else {
+                answers[i][1] = "no";
+            }
         }
         return answers;
     }
-    private static String isPrime(int value) {
+
+    private static boolean isPrime(int value) {
         if (value < 2) {
-            return  "no";
+            return false;
         }
         for (int j = 2; j <= value / 2; j++) {
             if (value % j == 0) {
-                return "no";
+                return false;
             }
         }
-        return "yes";
+        return true;
     }
 
     public static void play() {

@@ -10,11 +10,7 @@ public class Even {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int quest = Utils.generateNumber(0, Engine.MAXVALUE); //Создание числа
             arrayAnswer[i][0] = String.valueOf(quest);
-            if (quest % 2 == 0) { //Если число четное
-                arrayAnswer[i][1] = "yes"; //добавление правильного ответа в массив с правильными ответами
-            } else { //Если число нечетное
-                arrayAnswer[i][1] = "no";
-            }
+            arrayAnswer[i][1] = (quest % 2 == 0) ? "yes" : "no";
         }
         return arrayAnswer;
     }
