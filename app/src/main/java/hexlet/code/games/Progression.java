@@ -18,9 +18,7 @@ public class Progression {
 
     public static String[][] hidder() { //Создаст массив , который будет прятать число в себе
         String[][] answer = new String[Engine.ROUNDS][2];
-        String saver = "";
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            saver = "";
             int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
             int rule = Utils.generateNumber(RULENUMBERMIN, RULENUMBERMAX);
             int length = Utils.generateNumber(MINLENGTH, MAXLENGTH);
