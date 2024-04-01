@@ -16,7 +16,7 @@ public class Progression {
         return stringArray;
     }
 
-    public static String[][] hidder() { //Создаст массив , который будет прятать число в себе
+    public static String[][] generateRoundData() { //Создаст массив , который будет прятать число в себе
         String[][] answer = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
@@ -34,6 +34,6 @@ public class Progression {
 
     public static void play() {
         String descriprion = "What number is missing in the progression?";
-        Engine.starter(hidder(), descriprion);
+        Engine.starter(generateRoundData(), descriprion);
     }
 }

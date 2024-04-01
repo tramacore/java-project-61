@@ -13,24 +13,22 @@ public class Calc {
             int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
             int secondValue = Utils.generateNumber(0, Engine.MAXVALUE);
             var indexOperator = Utils.generateNumber(0, operators.length - 1);
-
             var operator = operators[indexOperator];
-
             correctAnswers[i][1] = String.valueOf(operating(operator, firstValue, secondValue));
             correctAnswers[i][0] = firstValue + " " + operator + " " + secondValue;
         }
         return correctAnswers;
     }
 
-    private static int operating(char factor, int firstValue, int secondValue) {
-        if (factor == '+') { //Если число меньше трети - то оператор - сложение
+    private static int operating(char operator, int firstValue, int secondValue) {
+        if (operator == '+') { //Если число меньше трети - то оператор - сложение
             return firstValue + secondValue;
-        } else if (factor == '*') {
+        } else if (operator == '*') {
             return firstValue * secondValue;
-        } else if (factor == '-') {
+        } else if (operator == '-') {
             return firstValue - secondValue;
         }
-        return 0;
+        throw new RuntimeException("Unknown operator" + operator);
     }
 
     public static void play() {

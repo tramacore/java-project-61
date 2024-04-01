@@ -9,6 +9,7 @@ public class Prime {
         for (int i = 0; i < Engine.ROUNDS; i++) {
             int value = Utils.generateNumber(0, Engine.MAXVALUE);
             answers[i][0] = String.valueOf(value);
+            answers[i][1] = isPrime(value) ? "yes" : "no";
             if (isPrime(value)) {
                 answers[i][1] = "yes";
             } else {
