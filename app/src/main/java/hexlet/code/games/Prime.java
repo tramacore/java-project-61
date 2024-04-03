@@ -5,16 +5,12 @@ import hexlet.code.Utils;
 
 public class Prime {
     public static String[][] primer() {
+        final int maxvalue = 100;
         String[][] answers = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int value = Utils.generateNumber(0, Engine.MAXVALUE);
+            int value = Utils.generateNumber(0, maxvalue);
             answers[i][0] = String.valueOf(value);
             answers[i][1] = isPrime(value) ? "yes" : "no";
-            if (isPrime(value)) {
-                answers[i][1] = "yes";
-            } else {
-                answers[i][1] = "no";
-            }
         }
         return answers;
     }

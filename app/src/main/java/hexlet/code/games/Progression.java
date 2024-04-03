@@ -4,10 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    private static final int RULENUMBERMIN = 1;
-    private static final int RULENUMBERMAX = 10;
-    private static final int MINLENGTH = 5;
-    private static final int MAXLENGTH = 12;
     public static String[] makeProgression(int firstValue, int rule, int length) {
         String[] stringArray = new String[length];
         for (int i = 0; i < length; i += 1) {
@@ -17,11 +13,16 @@ public class Progression {
     }
 
     public static String[][] generateRoundData() { //Создаст массив , который будет прятать число в себе
+        final int rulenumbermin = 1;
+        final int rulenumbermax = 10;
+        final int minlength = 5;
+        final int maxlength = 12;
+        final int maxvalue = 100;
         String[][] answer = new String[Engine.ROUNDS][2];
         for (int i = 0; i < Engine.ROUNDS; i++) {
-            int firstValue = Utils.generateNumber(0, Engine.MAXVALUE);
-            int rule = Utils.generateNumber(RULENUMBERMIN, RULENUMBERMAX);
-            int length = Utils.generateNumber(MINLENGTH, MAXLENGTH);
+            int firstValue = Utils.generateNumber(0, maxvalue);
+            int rule = Utils.generateNumber(rulenumbermin, rulenumbermax);
+            int length = Utils.generateNumber(minlength, maxlength);
             String[] arrToHide = makeProgression(firstValue, rule, length);
             int hideNumber = Utils.generateNumber(0, length - 1);
             answer[i][1] = String.valueOf(arrToHide[hideNumber]); //Сохранение ответов

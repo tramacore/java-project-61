@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS = 3; //Максимальное число раундов
-    public static final int MAXVALUE = 100;
 
     public static void starter(String[][] answersGame, String description) {
         Scanner answerScanner = new Scanner(System.in);
@@ -17,19 +16,16 @@ public class Engine {
             System.out.print("Question: " + questionAnswer[0] + "\nYour answer : ");
             String answer = answerScanner.next();
             if (answer.equals(questionAnswer[1])) {
-                index++;
-                if (index != ROUNDS) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("Congratulations, " + name + "!");
-                    answerScanner.close();
-                }
+                System.out.println("Correct!");
             } else {
                 System.out.println("\'" + answer + "\'" + " is wrong answer ;(. Correct answer was "
                         + "\'" + questionAnswer[1] + "\'\n" + "Let's try again, " + name + "!");
                 answerScanner.close();
                 return;
             }
+
         }
+        System.out.println("Congratulations, " + name + "!");
+        answerScanner.close();
     }
 }
