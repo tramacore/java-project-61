@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 
 public class Calc {
 
-    public static String[][] calcing() {
+    public static String[][] calculate() {
         final int maxvalue = 100;
         String[][] correctAnswers = new String[Engine.ROUNDS][2]; //Создание массива ,
         //в котором будут правильные ответы( на 3 раунда )
@@ -15,13 +15,13 @@ public class Calc {
             int secondValue = Utils.generateNumber(0, maxvalue);
             var indexOperator = Utils.generateNumber(0, operators.length - 1);
             var operator = operators[indexOperator];
-            correctAnswers[i][1] = String.valueOf(operating(operator, firstValue, secondValue));
+            correctAnswers[i][1] = String.valueOf(operate(operator, firstValue, secondValue));
             correctAnswers[i][0] = firstValue + " " + operator + " " + secondValue;
         }
         return correctAnswers;
     }
 
-    private static int operating(char operator, int firstValue, int secondValue) {
+    private static int operate(char operator, int firstValue, int secondValue) {
         if (operator == '+') { //Если число меньше трети - то оператор - сложение
             return firstValue + secondValue;
         } else if (operator == '*') {
@@ -34,6 +34,6 @@ public class Calc {
 
     public static void play() {
         String description = "What is the result of the expression?";
-        Engine.starter(calcing(), description);
+        Engine.starter(calculate(), description);
     }
 }

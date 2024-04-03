@@ -7,11 +7,9 @@ public class Engine {
 
     public static void starter(String[][] answersGame, String description) {
         Scanner answerScanner = new Scanner(System.in);
-        int counter = 0;
         System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
         String name = answerScanner.next();
         System.out.printf("Hello, %s!\n" + description + "\n", name);
-        int index = 0;
         for (String[] questionAnswer : answersGame) {
             System.out.print("Question: " + questionAnswer[0] + "\nYour answer : ");
             String answer = answerScanner.next();
