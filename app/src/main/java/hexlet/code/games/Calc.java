@@ -8,7 +8,7 @@ public class Calc {
     public static String[][] calcing() {
         final int maxvalue = 100;
         String[][] correctAnswers = new String[Engine.ROUNDS][2]; //Создание массива ,
-        //в котором будут правильные ответы(на 3 раунда)
+        //в котором будут правильные ответы(на 3 раунда )
         for (int i = 0; i < Engine.ROUNDS; i++) {
             final char[] operators = {'+', '-', '*'};
             int firstValue = Utils.generateNumber(0, maxvalue);
